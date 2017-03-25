@@ -6,14 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://fxhafxh.github.io">
-  <title>Archives | 枫信华</title>
+  <title>Debian安装squid3 | 枫信华</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="枫信华">
-<meta property="og:url" content="http://fxhafxh.github.io/archives/index.html">
+  <meta name="description" content="安装命令        apt-get install squid3
+查看安装的位置        whereiis squid3
+官网  http://www.squid-cache.org/Versions/v3/3.5/
+修改配置文件    vim /etc/squid/squid.conf
+http_port 0.0.0.0:4321cache_dir ufs /var/spool/squ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Debian安装squid3">
+<meta property="og:url" content="http://fxhafxh.github.io/2017/03/25/Debian安装squid3/index.html">
 <meta property="og:site_name" content="枫信华">
+<meta property="og:description" content="安装命令        apt-get install squid3
+查看安装的位置        whereiis squid3
+官网  http://www.squid-cache.org/Versions/v3/3.5/
+修改配置文件    vim /etc/squid/squid.conf
+http_port 0.0.0.0:4321cache_dir ufs /var/spool/squ">
+<meta property="og:updated_time" content="2017-03-25T08:28:45.884Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="枫信华">
+<meta name="twitter:title" content="Debian安装squid3">
+<meta name="twitter:description" content="安装命令        apt-get install squid3
+查看安装的位置        whereiis squid3
+官网  http://www.squid-cache.org/Versions/v3/3.5/
+修改配置文件    vim /etc/squid/squid.conf
+http_port 0.0.0.0:4321cache_dir ufs /var/spool/squ">
   
     <link rel="alternative" href="/atom.xml" title="枫信华" type="application/atom+xml">
   
@@ -153,157 +169,175 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Debian安装squid3" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Debian安装squid3
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/25/Debian安装squid3/" class="archive-article-date">
+
+        
+        <a href="/2017/03/25/Debian安装squid3/" class="archive-article-date">
   	<time datetime="2017-03-25T08:28:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/25/Debian安装squid3/">Debian安装squid3</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装命令        apt-get install squid3</p>
+<p>查看安装的位置        whereiis squid3</p>
+<p>官网  <a href="http://www.squid-cache.org/Versions/v3/3.5/" target="_blank" rel="external">http://www.squid-cache.org/Versions/v3/3.5/</a></p>
+<p>修改配置文件    vim /etc/squid/squid.conf</p>
+<p>http_port 0.0.0.0:4321<br>cache_dir ufs /var/spool/squid3 1000 64 1024<br>cache_access_log /var/log/squid3/access.log<br>cache_log /var/log/squid3/cache.log<br>cache_store_log /var/log/squid3/store.log<br>pid_filename /var/run/squid.pid<br>cache_mgr 3122331345@qq.com</p>
+<p>cache_mem 0 MB<br>cache_swap_low 90<br>cache_swap_high 95<br>maximum_object_size 4096 KB<br>maximum_object_size_in_memory 8 KB</p>
+<p>auth_param basic program /usr/lib/squid3/ncsa_auth /etc/squid3/squid_passwd<br>acl ncsa_users proxy_auth REQUIRED<br>http_access allow ncsa_users</p>
+<p>建立用户名文件                touch /etc/squid3/squid_passwd<br>passwd文件赋予权限        chmod o+r /etc/squid3/squid_passwd</p>
+<p>最容易发生的问题是ncsa_auth这个文件找不到，可以去官网下载编译包，从文件里提取路劲是helpers/basic_auth/NCSA/ncsa_auth （注意权限）</p>
+<p>然后建立用户 htpasswd /etc/squid3/squid_passwd [yourname]</p>
+<p>初始设置 squid3 -k parse</p>
+<p>初始缓存 squid3 -z</p>
+<p>如果有权限问题，修改<br>chmod 777 /var/log/squid3/access.log<br>chmod 777 /var/log/squid3/cache.log<br>chmod 777 /var/log/squid3/store.log</p>
+<p>启动squid3服务   /etc/init.d/squid restart</p>
+<p>原文链接 <a href="http://www.cnblogs.com/newflypig/archive/2012/09/28/2862000.html" target="_blank" rel="external">http://www.cnblogs.com/newflypig/archive/2012/09/28/2862000.html</a><br><a href="http://blog.csdn.net/w1781806162/article/details/46784539" target="_blank" rel="external">http://blog.csdn.net/w1781806162/article/details/46784539</a></p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://fxhafxh.github.io/2017/03/25/Debian安装squid3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/25/tar-gz安装方法/" class="archive-article-date">
-  	<time datetime="2017-03-25T08:26:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/25/tar-gz安装方法/">tar.gz安装方法</a>
-    </h1>
+  
+    <a href="/2017/03/25/tar-gz安装方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">tar.gz安装方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Debian安装squid3" data-title="Debian安装squid3" data-url="http://fxhafxh.github.io/2017/03/25/Debian安装squid3/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"litten-hexo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/25/Debian-mysql安装和完全卸载/" class="archive-article-date">
-  	<time datetime="2017-03-25T08:12:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/25/Debian-mysql安装和完全卸载/">Debian-mysql安装和完全卸载</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/25/debian搭建ss服务器/" class="archive-article-date">
-  	<time datetime="2017-03-25T07:23:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/25/debian搭建ss服务器/">debian搭建ss服务器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/25/新篇章/" class="archive-article-date">
-  	<time datetime="2017-03-25T06:54:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/25/新篇章/">新篇章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -326,8 +360,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

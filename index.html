@@ -155,6 +155,71 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Debian安装squid3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/25/Debian安装squid3/">Debian安装squid3</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/25/Debian安装squid3/" class="archive-article-date">
+  	<time datetime="2017-03-25T08:28:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装命令        apt-get install squid3</p>
+<p>查看安装的位置        whereiis squid3</p>
+<p>官网  <a href="http://www.squid-cache.org/Versions/v3/3.5/" target="_blank" rel="external">http://www.squid-cache.org/Versions/v3/3.5/</a></p>
+<p>修改配置文件    vim /etc/squid/squid.conf</p>
+<p>http_port 0.0.0.0:4321<br>cache_dir ufs /var/spool/squid3 1000 64 1024<br>cache_access_log /var/log/squid3/access.log<br>cache_log /var/log/squid3/cache.log<br>cache_store_log /var/log/squid3/store.log<br>pid_filename /var/run/squid.pid<br>cache_mgr 3122331345@qq.com</p>
+<p>cache_mem 0 MB<br>cache_swap_low 90<br>cache_swap_high 95<br>maximum_object_size 4096 KB<br>maximum_object_size_in_memory 8 KB</p>
+<p>auth_param basic program /usr/lib/squid3/ncsa_auth /etc/squid3/squid_passwd<br>acl ncsa_users proxy_auth REQUIRED<br>http_access allow ncsa_users</p>
+<p>建立用户名文件                touch /etc/squid3/squid_passwd<br>passwd文件赋予权限        chmod o+r /etc/squid3/squid_passwd</p>
+<p>最容易发生的问题是ncsa_auth这个文件找不到，可以去官网下载编译包，从文件里提取路劲是helpers/basic_auth/NCSA/ncsa_auth （注意权限）</p>
+<p>然后建立用户 htpasswd /etc/squid3/squid_passwd [yourname]</p>
+<p>初始设置 squid3 -k parse</p>
+<p>初始缓存 squid3 -z</p>
+<p>如果有权限问题，修改<br>chmod 777 /var/log/squid3/access.log<br>chmod 777 /var/log/squid3/cache.log<br>chmod 777 /var/log/squid3/store.log</p>
+<p>启动squid3服务   /etc/init.d/squid restart</p>
+<p>原文链接 <a href="http://www.cnblogs.com/newflypig/archive/2012/09/28/2862000.html" target="_blank" rel="external">http://www.cnblogs.com/newflypig/archive/2012/09/28/2862000.html</a><br><a href="http://blog.csdn.net/w1781806162/article/details/46784539" target="_blank" rel="external">http://blog.csdn.net/w1781806162/article/details/46784539</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/25/Debian安装squid3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-tar-gz安装方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
