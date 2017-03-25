@@ -52,7 +52,7 @@ var _hmt = _hmt || [];
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/photos/litten.png" class="js-avatar">
+			<img src="/img/litten.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">枫信华</a></h1>
@@ -64,8 +64,6 @@ var _hmt = _hmt || [];
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/photos">相册</a></li>
-	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -74,6 +72,8 @@ var _hmt = _hmt || [];
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
             
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
     			
             
     			
@@ -84,9 +84,13 @@ var _hmt = _hmt || [];
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/fxhafxh" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="http://www.github.com" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="http://weibo.com/afxh" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="mail" target="_blank" href="mailto:3122331345@qq.com" title="mail"><i class="icon-mail"></i></a>
+		        
+					<a class="facebook" target="_blank" href="http://fxhafxh.blog.163.com" title="facebook"><i class="icon-facebook"></i></a>
 		        
 			</div>
 		</nav>
@@ -104,7 +108,7 @@ var _hmt = _hmt || [];
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/photos/litten.png" class="js-avatar">
+				<img src="/img/litten.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">枫信华</h1>
@@ -114,16 +118,18 @@ var _hmt = _hmt || [];
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/fxhafxh" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="http://www.github.com" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="http://weibo.com/afxh" title="weibo"><i class="icon-weibo"></i></a>
+			        
+						<a class="mail" target="_blank" href="mailto:3122331345@qq.com" title="mail"><i class="icon-mail"></i></a>
+			        
+						<a class="facebook" target="_blank" href="http://fxhafxh.blog.163.com" title="facebook"><i class="icon-facebook"></i></a>
 			        
 				</div>
 			</nav>
@@ -132,9 +138,7 @@ var _hmt = _hmt || [];
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/photos">相册</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -161,6 +165,33 @@ var _hmt = _hmt || [];
           <a href="/archives/2017" class="archive-year">2017</a>
         </div>
         <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/03/25/新篇章/" class="archive-article-date">
+  	<time datetime="2017-03-25T06:54:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/03/25/新篇章/">新篇章</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
     
     <article class="archive-article archive-type-post">
   <div class="archive-article-inner">
@@ -238,6 +269,8 @@ var _hmt = _hmt || [];
       
     
       
+      
+      
     
       
       
@@ -249,13 +282,15 @@ var _hmt = _hmt || [];
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
+      
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -319,11 +354,47 @@ var _hmt = _hmt || [];
     
 
     
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://fxhafxh.blog.163.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>网易博客</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://i.qq.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>QQ空间</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://bbs.77169.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>华盟论坛</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://bbs.ncar.cc//" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>耐卡论坛</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://www.dytt8.net/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>电影天堂</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://2gxw.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>趣味源</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://www.tebaidu.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>云盘搜索</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">枫信华&lt;br&gt;繁华了我心落寞&lt;br&gt;&lt;br&gt;悲伤了汝心凄凉&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;还在努力学习&lt;br&gt;未曾想过放弃。&lt;br&gt;&lt;br&gt;娜美</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">既不回头，何必不忘。&lt;/br&gt;若是无缘，何须誓言。&lt;/br&gt;今日种种，似水无恒。&lt;/br&gt;明夕何夕，君已陌路。&lt;/br&gt;</div>
   	  	
     	</section>
     
