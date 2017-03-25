@@ -155,6 +155,69 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Debian-mysql安装和完全卸载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/25/Debian-mysql安装和完全卸载/">Debian-mysql安装和完全卸载</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/25/Debian-mysql安装和完全卸载/" class="archive-article-date">
+  	<time datetime="2017-03-25T08:12:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>—————————-安装部分—————————–</p>
+<p>安装 apt-get install mysql-server mysql-client</p>
+<p>弹出蓝色框输入要设置的密码，俩次输入一致即可</p>
+<p>查看mysql是否运行  ps -ef | grep mysql</p>
+<p>查看mysqld是否运行  ps -ef | grep mysqld</p>
+<p>登录mysqp    mysql -uroot -p</p>
+<p>回车以后设置的密码</p>
+<p>查看数据库是否能正常列出表 show databases ;     (;前有一个空格)</p>
+<p>—————————-完全卸载—————————–</p>
+<p>确定mysql安装的所有组件  dpkg –get-selections | grep mysql</p>
+<p>然后开始卸载<br>    apt-get –purge remove mysql-server<br>        apt-get –purge remove mysql-client<br>        apt-get –purge remove mysql-common</p>
+<p>然后清理删除文件夹<br>        apt-get autoremove<br>        apt-get autoclean<br>        rm /etc/mysql/ -R<br>        rm /var/lib/mysql/ -R</p>
+<p>—————————-卸载完成—————————–</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/25/Debian-mysql安装和完全卸载/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-debian搭建ss服务器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
