@@ -155,6 +155,73 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-debian搭建ss服务器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/25/debian搭建ss服务器/">debian搭建ss服务器</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/25/debian搭建ss服务器/" class="archive-article-date">
+  	<time datetime="2017-03-25T07:23:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>—————————-安装python部分—————————–<br>确认是否安装python<br>确认是否安装pip<br>        python    回车出python命令行表示已安装。如未找到python命令，则<br>                apt-get install python<br>        pip 回车出pip命令行表示已安装。如未找到pip命令，则<br>                apt-get install python-pip</p>
+<p>—————————-安装shadowsocks部分—————————–</p>
+<p>使用pip安装    pip install shadowsocks</p>
+<p>在etc文件夹下建立shadowsocks.json配置文件   vi /etc/shadowsocks.json</p>
+<p>写入以下内容并保存。（内容分别提到了端口，密码和加密方式，其他未配置，采用默认，这里的p1234assword就是你自己设置的密码，可以随意设置成你的密码，而8388和8389这里是端口，下边的是加密方式）</p>
+<p>{<br> “port_password”: {<br>     “8388”: “p1234assword”,<br>     “8389”: “p1234assword”<br> },<br> “method”:”aes-256-cfb”<br>}</p>
+<p>启动ss服务    ssserver -c /etc/shadowsocks.json -d start<br>当你修改了shadowsocks.json（比如里边的密码或者端口的时候，要重启ss服务）<br>        ssserver -c /etc/shadowsocks.json -d restart</p>
+<p>当需要停止ss服务的时候        ssserver -c /etc/shadowsocks.json -d stop</p>
+<p>—————————-开机启动shadowsocks服务—————————–</p>
+<p>把ss服务加入到开机自启<br>            nano /etc/rc.local</p>
+<p>把/usr/local/bin/ssserver -c /etc/shadowsocks.json -d start写入进去</p>
+<p>—————————-使用ss服务—————————–</p>
+<p>在电脑上安装ss软件，手机端安装SS软件，这里以电脑端为例子</p>
+<p>服务器ip填你的服务器ip地址</p>
+<p>端口可以写8388和8389就是你刚刚shadowsocks.json设置的</p>
+<p>加密方式也是你刚刚shadowsocks.json设置的</p>
+<p>代理端口默认就行 1080，然后点击确定就ok了</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/25/debian搭建ss服务器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-新篇章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
